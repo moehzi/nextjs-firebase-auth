@@ -12,6 +12,7 @@ import FormHelperText from "@mui/material/FormHelperText";
 import Modal from "@mui/material/Modal";
 import TextField from "@mui/material/TextField";
 import FormError from "../../Forms/Error";
+import { SignIn, GetSignInErrorMessage } from "../../../services/firebase";
 
 const style = {
   position: "absolute",
@@ -32,7 +33,14 @@ const LoginModal = ({ open, CloseModal }) => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = () => {};
+  const onSubmit = async (values) => {
+    const { email, password } = values;
+    try {
+      await SignIn(email, password);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 
   return (
     <Modal open={open} onClose={CloseModal}>

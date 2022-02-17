@@ -1,15 +1,16 @@
-import Head from 'next/head'
-import { ThemeProvider } from '@mui/material/styles'
-import CssBaseline from '@mui/material/CssBaseline'
-import { CacheProvider } from '@emotion/react'
-import theme from '../utils/theme'
-import createEmotionCache from '../utils/createEmotionCache'
-import '../styles/globals.css'
+import Head from "next/head";
+import { ThemeProvider } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+import { CacheProvider } from "@emotion/react";
+import theme from "../utils/theme";
+import createEmotionCache from "../utils/createEmotionCache";
+import "../styles/globals.css";
+import AuthStateChangeProvider from "../context/auth";
 
 const clientSideEmotionCache = createEmotionCache();
 
 function MyApp(props) {
-  const { Component, emotionCache = clientSideEmotionCache, pageProps } = props
+  const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
   return (
     <CacheProvider value={emotionCache}>
       <Head>
@@ -18,11 +19,11 @@ function MyApp(props) {
       </Head>
       <ThemeProvider theme={theme}>
         <CssBaseline />
+        <AuthStateChangeProvider />
         <Component {...pageProps} />
       </ThemeProvider>
     </CacheProvider>
-  )
+  );
 }
 
-export default MyApp
-
+export default MyApp;
