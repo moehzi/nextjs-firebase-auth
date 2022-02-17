@@ -38,7 +38,8 @@ const LoginModal = ({ open, CloseModal }) => {
     try {
       await SignIn(email, password);
     } catch (error) {
-      console.log(error.message);
+      const message = GetSignInErrorMessage(error.code);
+      console.log(message);
     }
   };
 

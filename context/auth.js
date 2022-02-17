@@ -14,7 +14,7 @@ const AuthStateChangeProvider = () => {
   };
 
   useEffect(() => {
-    initiateAuthStateChange;
+    initiateAuthStateChange();
   }, []);
   return <></>;
 };

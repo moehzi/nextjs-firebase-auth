@@ -1,4 +1,4 @@
-import { initializeApp } from "firebase/app";
+import { initializeApp, getApps } from "firebase/app";
 import {
   createUserWithEmailAndPassword,
   getAuth,
@@ -7,12 +7,12 @@ import {
 } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: process.env.NEXT_PULIC_API_KEY,
-  authDomain: process.env.NEXT_PULIC_AUTH_DOMAIN,
-  projectId: process.env.NEXT_PULIC_PROJECT_ID,
-  storageBucket: process.env.NEXT_PULIC_STORAGE_BUCKET,
-  messagingSenderId: process.env.NEXT_PULIC_MESSAGING_SENDER_ID,
-  appId: process.env.NEXT_PULIC_APP_ID,
+  apiKey: "AIzaSyCLluhtuFK2wHqnn9Qe2SUozN1MmMOvG5Y",
+  authDomain: "nextjs-auth-e73be.firebaseapp.com",
+  projectId: "nextjs-auth-e73be",
+  storageBucket: "nextjs-auth-e73be.appspot.com",
+  messagingSenderId: "995555919668",
+  appId: "1:995555919668:web:27c946e966dd8d0f364761",
 };
 
 // Initialize Firebase
