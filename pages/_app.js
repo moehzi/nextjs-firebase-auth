@@ -6,6 +6,7 @@ import theme from "../utils/theme";
 import createEmotionCache from "../utils/createEmotionCache";
 import "../styles/globals.css";
 import AuthStateChangeProvider from "../context/auth";
+import { UserProvider } from "../context/user";
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -19,8 +20,11 @@ function MyApp(props) {
       </Head>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <AuthStateChangeProvider />
-        <Component {...pageProps} />
+        <UserProvider>
+          <AuthStateChangeProvider>
+            <Component {...pageProps} />
+          </AuthStateChangeProvider>
+        </UserProvider>
       </ThemeProvider>
     </CacheProvider>
   );
