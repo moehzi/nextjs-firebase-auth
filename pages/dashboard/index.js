@@ -1,14 +1,14 @@
 import React from "react";
 import { useUser } from "../../context/user";
-import Container from "@mui/material/Container";
 import withProtected from "../../hoc/withProtected";
+import Authenticated from "../../components/Layout/Authenticated";
 
 const Dashboard = () => {
   const user = useUser();
   const { email, uid } = user;
 
   return (
-    <Container>
+    <Authenticated title="Dashboard">
       <div>
         <p>
           Email: <b>{email}</b>
@@ -17,7 +17,7 @@ const Dashboard = () => {
           UID: <b>{uid}</b>
         </p>
       </div>
-    </Container>
+    </Authenticated>
   );
 };
 
